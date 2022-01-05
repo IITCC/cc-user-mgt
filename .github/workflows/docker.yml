@@ -40,5 +40,5 @@ jobs:
           context: .
           push: true
           file: dockerfile
-          tags: isurabuy/user-mgt-service:latest
+          tags: isurabuy/user-mgt-service:${{github.run_id}}
 
