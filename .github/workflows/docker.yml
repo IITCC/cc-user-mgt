@@ -1,4 +1,4 @@
-name: ci
+name: Build image and deploy
 
 on:
   push:
@@ -41,4 +41,10 @@ jobs:
           push: true
           file: dockerfile
           tags: isurabuy/user-mgt-service:${{github.run_id}}
-
+      - 
+        name: Run the version update script
+        env:
+          TOKEN: ${{secrets.USER_PAT}}
+          RELEASE_ID: ${{github.run_id}}
+        run: bash update_version.sh iit-bot $TOKEN $GITHUB_WORKSPACE $RELEASE_ID
+        id: version_bump_be
