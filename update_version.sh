@@ -17,8 +17,8 @@ TAG_LINE=$(grep -w 'tag' "${WORK_DIR}"/helm_user_mgt_be/values.yaml | sed 's/ */
 sed -i 's|'"${TAG_LINE}"'|tag: '"'${TAG}'"'|' "${WORK_DIR}"/helm_user_mgt_be/values.yaml
 
 # Push new values.yaml.
-git -C helm_user_mgt_be add "${WORK_DIR}"/helm_user_mgt/values.yaml
-git -C helm_user_mgt_be commit -m "Update user mgt app version to - ${TAG}"
+git -C helm_user_mgt_be add "${WORK_DIR}"/helm_user_mgt_be/values.yaml
+git -C helm_user_mgt_be commit -m "Update user mgt version to - ${TAG}"
 git -C helm_user_mgt_be push origin main
 
 echo "Update web app version done"
