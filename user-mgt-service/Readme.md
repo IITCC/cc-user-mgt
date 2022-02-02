@@ -1,4 +1,4 @@
-# **User Management Service**
+# **User Management REST Service**
 
 **Start the service**
 
